@@ -4,7 +4,7 @@ Repository containing data science projects completed by me for self learning an
 ## Contents
 
 ### Data Anlysis and Visualisation
-    - __Python__
-        - [Exploratory analysis of Twitch](https://github.com/kai-majerus/data-science-portfolio/blob/master/01-Data-Collection/API%20data%20collection.ipynb): Exploratory analysis of a Twitch dataset collected by myself using the [Twitch API](https://dev.twitch.tv/docs/api).
+* __Python__
+    * [Exploratory analysis of Twitch](https://github.com/kai-majerus/data-science-portfolio/tree/master/01-Twitch): Exploratory analysis of a Twitch dataset collected by myself using the [Twitch API](https://dev.twitch.tv/docs/api).
 
-### Machine
+### Machine Learning
