@@ -4,4 +4,4 @@
 */.ipynb_checkpoints/*
 
 ### Datasets ###
-/notebook_projects/soccer_linear_regression/EPL_Soccer_MLR_LR.csv
+*.csv
