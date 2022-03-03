@@ -25,11 +25,11 @@ Data sources
 * [Twitch API](https://dev.twitch.tv/docs/api)
 
 Hypothesis
-  1 There is a positive relationship between minutes streamed and followers
-  2 Mature content is more popular
-  3 What is the best time for a streamer to go live?
-  4 What are the top games on Twitch?
-  5 Who is the most popular streamer on Twitch in terms of followers/subscriptions/views?
+1. There is a positive relationship between minutes streamed and followers
+2. Mature content is more popular
+3. What is the best time for a streamer to go live?
+4. What are the top games on Twitch?
+5. Who is the most popular streamer on Twitch in terms of followers/subscriptions/views?
 
 Challenges
 * The data needed to answer these questions is split across many different endpoints. Finding the right endpoints in order to gather the data to answer these questions will be a challenge. 
