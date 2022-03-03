@@ -1,5 +1,5 @@
 # Twitch Exploratory Analysis
-This project is a part of my Data Science Portfolio. Other projects can be found at the [main GitHub repo](https://github.com/kai-majerus/data-science-portfolio).
+This project is a part of my [Data Science Portfolio](https://github.com/kai-majerus/data-science-portfolio).
 
 #### -- Project Status: [Active]
 
