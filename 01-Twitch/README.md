@@ -6,7 +6,7 @@ This project is a part of my [Data Science Portfolio](https://github.com/kai-maj
 ## Project Intro/Objective
 The purpose of this project is to:
 * Explore using an API to retrieve data from Twitch
-* Conduct a basic exploratory data analysis of the data that is collected
+* Conduct a basic exploratory analysis of the data that is collected
 * Plot some simple charts to visualize the data
 * Investigate the relationships between variables in the dataset
 
