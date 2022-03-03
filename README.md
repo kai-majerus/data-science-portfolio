@@ -1,5 +1,5 @@
 # Data Science Portfolio 🚀
-Repository containing data science projects completed by me for self learning and hobby purposes. Take a look at the Contents below and follow the link to the repo for each project :) 
+Repository containing data science projects completed by me for self learning and hobby purposes. Take a look at the Contents below and follow the link to the repo / location for each project :) 
 
 ## Contents
 
