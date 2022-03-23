@@ -3,9 +3,6 @@ Repository containing data science projects completed by me for self learning an
 
 ## Contents
 
-### Data Analysis and Visualisation 📊
-* [Exploratory analysis of Twitch](https://github.com/kai-majerus/data-science-portfolio/tree/master/01-Data-Analysis-Notebooks): Exploratory analysis of a Twitch dataset collected by myself using the [Twitch API](https://dev.twitch.tv/docs/api). (In Progress)
-
 ### Machine Learning 🤖
 
 __Regression__
@@ -16,3 +13,6 @@ __Regression__
 
 ### Data Engineering ⚙
 * [Taxi Fare Prediction Model](https://github.com/kai-majerus/TaxiFareModel): I trained a model from the Kaggle New York City Taxi Fare Prediction dataset and built a containerized prediction API deployed on Google Cloud Run and then hosted a [small Streamlit application on Heroku](https://kmajerus-taxifareapi.herokuapp.com/) 🌍
+
+### Data Analysis and Visualisation 📊
+* [Exploratory analysis of Twitch](https://github.com/kai-majerus/data-science-portfolio/tree/master/01-Data-Analysis-Notebooks): Exploratory analysis of a Twitch dataset collected by myself using the [Twitch API](https://dev.twitch.tv/docs/api). (In Progress)
