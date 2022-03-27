@@ -12,7 +12,7 @@ __Regression__
 * [Driver Drowsiness Detection using CNN Model](https://github.com/willgraham29/project_drowsy): I worked on this project in a group at Le Wagon. We detect whether a driver was drowsy using characteristics of yawning and having closed eyes. (In Progress)
 
 ### Data Engineering ⚙
-* [Taxi Fare Prediction Model](https://github.com/kai-majerus/TaxiFareModel): I trained a model from the Kaggle New York City Taxi Fare Prediction dataset and built a containerized prediction API deployed on Google Cloud Run and then hosted a [small Streamlit application on Heroku](https://kmajerus-taxifareapi.herokuapp.com/) 🌍
+* [Taxi Fare Prediction Model](https://github.com/kai-majerus/TaxiFareModel): I trained a model from the Kaggle New York City Taxi Fare Prediction dataset and built a containerized prediction API deployed on Google Cloud Run and then hosted a [small Streamlit application on Heroku](https://ny-taxi-fare-app.herokuapp.com/) 🌍
 
 ### Data Analysis and Visualisation 📊
 * [Exploratory analysis of Twitch](https://github.com/kai-majerus/data-science-portfolio/tree/master/01-Data-Analysis-Notebooks): Exploratory analysis of a Twitch dataset collected by myself using the [Twitch API](https://dev.twitch.tv/docs/api). (In Progress)
