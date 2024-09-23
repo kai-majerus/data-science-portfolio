@@ -1,12 +1,12 @@
 import numpy as np
-import pandas as pd
 from termcolor import colored
-from main.DataPreparation import data_preprocessing
-from main.metrics import mean_squared_error, r2_score
+
+from metrics import mean_squared_error, r2_score
+from src.DataPreparation import data_preprocessing
 
 
 class RidgeRegression:
-    def __init__(self, alpha=1, lr=0.01, n_iter=1000, csv_path=None):
+    def __init__(self, alpha=1.0, lr=0.01, n_iter=1000, csv_path=None):
         # hyperparameters initialization
         self.alpha = alpha
         self.lr = lr
@@ -37,6 +37,8 @@ class RidgeRegression:
             self.bias -= self.lr * db
 
     def predict(self, X):
+        if self.weights is None:
+            raise Exception("Model is not trained yet!")
         return np.dot(X, self.weights) + self.bias
 
     def RR_main(self):

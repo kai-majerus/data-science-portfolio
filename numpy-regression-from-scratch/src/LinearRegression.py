@@ -1,8 +1,8 @@
 import numpy as np
-import pandas as pd
 from termcolor import colored
-from main.DataPreparation import data_preprocessing
-from main.metrics import mean_squared_error, r2_score
+
+from src.DataPreparation import data_preprocessing
+from src.metrics import mean_squared_error, r2_score
 
 
 class LinearRegression:
@@ -34,6 +34,8 @@ class LinearRegression:
             self.bias -= self.lr * db
 
     def predict(self, X):
+        if self.weights is None:
+            raise Exception("Model is not trained yet!")
         return np.dot(X, self.weights) + self.bias
 
     def LR_main(self):

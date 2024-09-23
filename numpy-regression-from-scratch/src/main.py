@@ -1,7 +1,8 @@
-from main.LinearRegression import LinearRegression
-from main.LassoRegression import LassoRegression
-from main.RidgeRegression import RidgeRegression
 import pickle as pkl
+
+from src.LassoRegression import LassoRegression
+from src.LinearRegression import LinearRegression
+from src.RidgeRegression import RidgeRegression
 
 
 class EngineClass:
@@ -39,7 +40,7 @@ class EngineClass:
 
 if __name__ == "__main__":
     csv_path = "raw_data/EPL_Soccer_MLR_LR.csv"
-    model_save_path = "numpy_regression_from_scratch/data/Models/"
+    model_save_path = "src/data/Models/"
     eng_obj = EngineClass(csv_path, model_save_path)
     """
     regressions = ["linear", "lasso", "ridge"]

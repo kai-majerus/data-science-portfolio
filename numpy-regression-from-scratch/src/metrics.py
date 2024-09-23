@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # MSE - Mean Squared Error
 # MSE = (1/n) * Σ(y_true - y_pred) ** 2
 def mean_squared_error(y_true, y_pred):

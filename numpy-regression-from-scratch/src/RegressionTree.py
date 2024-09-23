@@ -1,6 +1,6 @@
 import numpy as np
-import pandas as pd
-from main.DataPreparation import data_preprocessing
+
+from src.DataPreparation import data_preprocessing
 
 
 class RegressionTree:
@@ -28,7 +28,10 @@ class RegressionTree:
         # node type
         self.node_type = node_type if node_type else "root"
         # features
-        self.features = self.X.columns
+        if self.X is None:
+            self.features = None
+        else:
+            self.features = self.X.columns
         # rule for splitting the nodes, feature used for splitting
         self.rule = rule if rule else ""
 
@@ -41,10 +44,9 @@ class RegressionTree:
         self.best_value = None
 
         # No.of samples
-        self.n_samples = len(self.y)
-
-        # Calculating mean of y
-        self.y_mean = np.mean(self.y)
+        if self.y:
+            self.n_samples = len(self.y)
+            self.y_mean = np.mean(self.y)
 
         # Calculating the impurity (mse) of the node
         self.mse = self.mse_calculator(self.y, self.y_mean)
@@ -65,12 +67,15 @@ class RegressionTree:
     def best_split_calculator(self):
         best_feature, best_value = None, None
         # creation of a dataframe combining X and y
-        df = self.X.copy()
-        df["y"] = self.y
+        if self.X:
+            df = self.X.copy()
+            df["y"] = self.y
 
         # gini impurity
         impurity = self.mse
 
+        if self.features is None:
+            return None, None
         for feature in self.features:
             X_df = df.dropna().sort_values(feature)  # sort to calculate moving avg
             x_mean = self.moving_avg_calculator(X_df[feature].unique(), 2)
@@ -105,6 +110,8 @@ class RegressionTree:
     def grow_tree_recursive(self):
         # Grow the regression tree recursively
         # creation of a dataframe combining X and y
+        if self.X is None:
+            return
         df = self.X.copy()
         df["y"] = self.y
 
@@ -130,7 +137,7 @@ class RegressionTree:
                     maxm_depth=self.maxm_depth,
                     min_split=self.min_split,
                     node_type="left_node",
-                    rule=f"{self.best_feature} <= {round(self.best_value,4)}",
+                    rule=f"{self.best_feature} <= {round(self.best_value,4)}",  # type: ignore
                 )
 
                 self.left = left_node
@@ -143,7 +150,7 @@ class RegressionTree:
                     maxm_depth=self.maxm_depth,
                     min_split=self.min_split,
                     node_type="right_node",
-                    rule=f"{self.best_feature} > {round(self.best_value, 4)}",
+                    rule=f"{self.best_feature} > {round(self.best_value, 4)}",  # type: ignore
                 )
 
                 self.right = right_node
@@ -175,11 +182,7 @@ class RegressionTree:
         if self.right is not None:
             self.right.display_tree()
 
-    def RT_main(self, csv_path=None):
-
-        if csv_path:
-            X_train, X_test, y_train, y_test = data_preprocessing(csv_path)
-            root_node = RegressionTree(X_train, y_train, maxm_depth=2, min_split=3)
+    def RT_main(self):
 
         # Growing the regression tree
         self.grow_tree_recursive()

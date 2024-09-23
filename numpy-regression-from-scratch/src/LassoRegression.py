@@ -1,12 +1,12 @@
 import numpy as np
-import pandas as pd
 from termcolor import colored
-from main.DataPreparation import data_preprocessing
-from main.metrics import mean_squared_error, r2_score
+
+from src.DataPreparation import data_preprocessing
+from src.metrics import mean_squared_error, r2_score
 
 
 class LassoRegression:
-    def __init__(self, alpha=1, lr=0.01, n_iter=1000, csv_path=None):
+    def __init__(self, alpha=1.0, lr=0.01, n_iter=1000, csv_path=None):
         # hyperparameters initialization
         self.alpha = alpha
         self.lr = lr
@@ -35,7 +35,7 @@ class LassoRegression:
             self.bias -= self.lr * db
 
     def predict(self, X):
-        return np.dot(X, self.weights) + self.bias
+        return np.dot(X, self.weights) + self.bias  # type: ignore
 
     def LR_main(self):
         # Splitting data into train and test
@@ -65,5 +65,5 @@ if __name__ == "__main__":
 
     # lr = learning rate
     # n_iter = no. of iterations
-    lasso_model = LassoRegression(alpha=0.03, lr=0.00001, n_iter=100, csv_path=csv_path)
+    lasso_model = LassoRegression(alpha=0.03, lr=0.00001, n_iter=100, csv_path=csv_path)  # type: ignore
     lasso_model.LR_main()

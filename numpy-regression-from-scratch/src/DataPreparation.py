@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 
-
 # Creating Train and Test data
+
+
 def data_shuffler(X, y, seed=None):
     # randomly shuffling data in X and y
     if seed:
@@ -11,7 +12,8 @@ def data_shuffler(X, y, seed=None):
     np.random.shuffle(idx)  # shuffling the indices
     try:
         return X[idx], y[idx]
-    except:
+    except Exception as e:
+        print(e)
         return X.iloc[idx], y.iloc[idx]
 
 
@@ -34,7 +36,7 @@ def data_preprocessing(csv_path=None):
         df = pd.read_csv(csv_path)
 
         # dropping Null and removing categorical columns
-        df.dropna(axis=0, how="all", thresh=None, subset=None, inplace=True)
+        df.dropna(axis=0, how="all", subset=None, inplace=True)
         df = df.select_dtypes(["number"])
 
         # Finding correlated features
@@ -48,14 +50,14 @@ def data_preprocessing(csv_path=None):
         for i in range(len(correlation_matrix.columns)):
             for j in range(i):
                 # Finding positively or negatively correlated
-                if abs(correlation_matrix.iloc[i, j]) > 0.8:
+                if abs(correlation_matrix.iloc[i, j]) > 0.8:  # type: ignore
                     colname = correlation_matrix.columns[i]
                     correlated_features.add(colname)
 
         print("Correlated Features : ", correlated_features)
 
         # Dropping the Correlated features from X
-        X.drop(columns=correlated_features, axis=1, inplace=True)
+        X.drop(labels=correlated_features, axis=1, inplace=True)  # type: ignore
 
         print("Shape of X after dropping correlated features : ", X.shape)
 
