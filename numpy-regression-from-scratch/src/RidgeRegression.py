@@ -1,8 +1,8 @@
 import numpy as np
 from termcolor import colored
 
-from metrics import mean_squared_error, r2_score
 from src.DataPreparation import data_preprocessing
+from src.metrics import mean_squared_error, r2_score
 
 
 class RidgeRegression:
