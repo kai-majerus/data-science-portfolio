@@ -19,81 +19,25 @@ Follow the setup/installation instructions below to install the package and then
 
 ![image](https://user-images.githubusercontent.com/53292276/157235956-89a91ace-41ca-4797-bbc6-9bf307e1df5c.png)
 
-# Table of contents
-
-- [Project Title](#regression-from-scratch)
-- [Demo-Preview](#demo-preview)
-- [Table of contents](#table-of-contents)
-- [Startup the project](#startup-the-project)
-- [Installation](#installation)
-- [Footer](#footer)
-
-# Startup the project
-[(Back to top)](#table-of-contents)
-The initial setup.
-
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
-
-Unittest test:
-```bash
-make clean install test
-```
-
-Check for numpy_regression_from_scratch in gitlab.com/{group}.
-If your project is not set please add it:
-
-- Create a new project on `gitlab.com/{group}/numpy_regression_from_scratch`
-- Then populate it:
-
-```bash
-##   e.g. if group is "{group}" and project_name is "numpy_regression_from_scratch"
-git remote add origin git@github.com:{group}/numpy_regression_from_scratch.git
-git push -u origin master
-git push -u origin --tags
-```
-
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-numpy_regression_from_scratch-run
-```
-
 # Installation
 [(Back to top)](#table-of-contents)
 
-Go to `https://github.com/{group}/numpy_regression_from_scratch` to see the project, manage issues,
-setup you ssh public key, ...
 
 Create a python3 virtualenv and activate it:
 
 ```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
+pyenv virtualenv 3.11.5 numpy-regression-from-scratch
 ```
 
 Clone the project and install it:
 
 ```bash
-git clone git@github.com:{group}/numpy_regression_from_scratch.git
+git clone git@github.com:kai-majerus/data-science-portfolio.git
+pyenv virtualenv 3.11.5 numpy-regression-from-scratch
 cd numpy_regression_from_scratch
+pyenv local numpy-regression-from-scratch
 pip install -r requirements.txt
-make clean install test                # install and test
-```
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-numpy_regression_from_scratch-run
+python scripts/numpy_regression_from_scratch-run.py
 ```
 
 # Footer
