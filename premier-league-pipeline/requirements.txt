@@ -1,3 +1,6 @@
 pandas
-requests
 python-dotenv
+pyarrow
+requests
+scikit-learn
+zenml==0.66.0
