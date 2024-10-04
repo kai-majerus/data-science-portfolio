@@ -1,13 +1,31 @@
+import os
+from typing import Annotated
+
 import pandas as pd
+from zenml import step
 
 from service.football_data_service import FootballDataService
 
 RESULT_MAPPING = {'HOME_TEAM': 0, 'DRAW': 1, 'AWAY_TEAM': 2}
 
 
-def get_team_stats_df(football_data_service: FootballDataService,
-                      get_dummies: bool = False,
-                      seasons: list = ['2022', '2023']) -> pd.DataFrame:
+@step()
+def import_data_offline() -> Annotated[pd.DataFrame, "dataset"]:
+    print("Using offline data from the Football Data Service.")
+    try:
+        df = pd.read_csv("data/football_data.csv")
+        return df
+    except FileNotFoundError:
+        raise FileNotFoundError("No offline data found. Please set offline "
+                                "parameter to False in feature_engineering.yaml")
+
+
+@step
+def data_loader(get_dummies: bool,
+                save_csv: bool,
+                seasons: list) -> Annotated[pd.DataFrame, "dataset"]:
+
+    football_data_service = FootballDataService()
 
     match_data = []
 
@@ -75,6 +93,11 @@ def get_team_stats_df(football_data_service: FootballDataService,
 
     df = df.dropna()
 
+    if save_csv:
+        if not os.path.exists("data"):
+            os.makedirs("data")
+        df.to_csv("data/football_data.csv", index=False)
+
     return df
 
 
@@ -97,6 +120,5 @@ def calculate_away_points(row) -> int:
 
 
 if __name__ == '__main__':
-    football_data_service = FootballDataService()
-    df = get_team_stats_df(football_data_service, get_dummies=True)
-    print(df.shape)
+    data = data_loader(get_dummies=True)
+    data.to_csv("data/football_data.csv", index=False)
