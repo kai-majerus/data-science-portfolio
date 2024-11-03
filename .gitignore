@@ -6,3 +6,12 @@
 */.ipynb_checkpoints/*
 
 .vscode
+
+*.csv
+
+*.xml
+
+*.txt
+
+# Work in progress
+/temperature-forecasting/
