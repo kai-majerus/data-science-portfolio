@@ -1,0 +1,18 @@
+# pipeline configuration
+parameters:
+    offline: True
+
+steps:
+  data_loader:
+    parameters:
+      get_dummies: True
+      save_csv: True
+      seasons: ['2022', '2023']
+  import_data_offline:
+    enable_cache: False
+
+  sklearn_splitter:
+    parameters:
+      train_size: 0.7
+      test_size: 0.1
+      eval_size: 0.2
