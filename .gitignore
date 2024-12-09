@@ -13,5 +13,18 @@
 
 *.txt
 
+
+*.pkl
+
+/mlruns
+
+/mlartifacts
+
 # Work in progress
 /temperature-forecasting/
+
+
+# yolo
+ladybird-classification/yolo/runs
+ladybird-classification/yolo/yolov8s.pt
+*.DS_Store
